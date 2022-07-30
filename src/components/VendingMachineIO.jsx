@@ -17,7 +17,7 @@ const VendingMachineIO = ({ itemSelection }) => {
   const makePurchase = async () => {
     try {
       const response = await axios.post(
-        `http://vending.us-east-1.elasticbeanstalk.com/money/${money}/item/${itemSelection}`
+        `https://vending.us-east-1.elasticbeanstalk.com/money/${money}/item/${itemSelection}`
       );
       console.log(response);
       setMessage("Thank You!!!");
