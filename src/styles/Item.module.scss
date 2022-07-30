@@ -1,0 +1,27 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  font-size: 17px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  transition: background-color 200ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e0e2e6;
+  }
+  .index {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+}
