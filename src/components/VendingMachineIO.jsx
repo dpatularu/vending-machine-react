@@ -5,7 +5,12 @@ import MessageOutput from "./MessageOutput";
 import ChangeOutput from "./ChangeOutput";
 import styles from "../styles/VendingMachineIO.module.scss";
 
-const VendingMachineIO = ({ itemSelection }) => {
+const VendingMachineIO = ({
+  items,
+  setItems,
+  itemSelection,
+  setItemSelection,
+}) => {
   const [money, setMoney] = useState(0);
   const [message, setMessage] = useState();
   const [coins, setCoins] = useState({
@@ -19,13 +24,21 @@ const VendingMachineIO = ({ itemSelection }) => {
       const response = await axios.post(
         `http://vending.us-east-1.elasticbeanstalk.com/money/${money}/item/${itemSelection}`
       );
-      console.log(response);
       setMessage("Thank You!!!");
       setMoney(0);
       setCoins(response.data);
+      setItemSelection(0);
+      removeItem(itemSelection);
     } catch (e) {
       setMessage(e.response.data.message);
     }
+  };
+
+  const removeItem = (id) => {
+    const updatedItems = [...items];
+    const index = updatedItems.findIndex((item) => item.id == id);
+    updatedItems[index].quantity = updatedItems[index].quantity - 1;
+    setItems(updatedItems);
   };
 
   return (

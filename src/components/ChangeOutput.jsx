@@ -6,14 +6,24 @@ const ChangeOutput = ({ coins, setCoins }) => {
   const displayChange = () => {
     let change = "";
     change = change.concat(
-      coins.quarters !== 0 ? `${coins.quarters} Quarters ` : ""
-    );
-    change = change.concat(coins.dimes !== 0 ? `${coins.dimes} Dimes ` : "");
-    change = change.concat(
-      coins.nickels !== 0 ? `${coins.nickels} Nickels ` : ""
+      coins.quarters !== 0
+        ? `${coins.quarters} ${coins.quarters !== 1 ? "Quarters" : "Quarter"} `
+        : ""
     );
     change = change.concat(
-      coins.pennies !== 0 ? `${coins.pennies} Pennies ` : ""
+      coins.dimes !== 0
+        ? `${coins.dimes} ${coins.dimes !== 1 ? "Dimes" : "Dime"} `
+        : ""
+    );
+    change = change.concat(
+      coins.nickels !== 0
+        ? `${coins.nickels} ${coins.nickels !== 1 ? "Nickels" : "Nickel"} `
+        : ""
+    );
+    change = change.concat(
+      coins.pennies !== 0
+        ? `${coins.pennies} ${coins.pennies !== 1 ? "Pennies" : "Penny"} `
+        : ""
     );
     return change;
   };

@@ -22,7 +22,12 @@ const VendingMachine = () => {
   return (
     <div className={styles.vendingMachine}>
       <ItemList items={items} setItemSelection={setItemSelection} />
-      <VendingMachineIO itemSelection={itemSelection} />
+      <VendingMachineIO
+        items={items}
+        setItems={setItems}
+        itemSelection={itemSelection}
+        setItemSelection={setItemSelection}
+      />
     </div>
   );
 };
